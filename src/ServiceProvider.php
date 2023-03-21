@@ -1,6 +1,6 @@
 <?php
 
-namespace Ianriizky\BeoneSAPServiceLayer;
+namespace RealSoft\SAPBOSL\SAPServiceLayer;
 
 use Ianriizky\BeoneSAPServiceLayer\Services\SAPServiceLayer;
 use Illuminate\Contracts\Container\Container as ContainerContract;

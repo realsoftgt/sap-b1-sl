@@ -1,6 +1,6 @@
 <?php
 
-namespace Ianriizky\BeoneSAPServiceLayer\Services;
+namespace RealSoft\SAPBOSL\SAPServiceLayer\Services;
 
 use BadMethodCallException;
 use Illuminate\Http\Client\PendingRequest;
@@ -10,9 +10,6 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Traits\Macroable;
 use RuntimeException;
 
-/**
- * @see https://sap-samples.github.io/smb-summit-hackathon/b1sl.html
- */
 class SAPServiceLayer
 {
     use Macroable {

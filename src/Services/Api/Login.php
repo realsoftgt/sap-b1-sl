@@ -1,6 +1,6 @@
 <?php
 
-namespace Ianriizky\BeoneSAPServiceLayer\Services\Api;
+namespace RealSoft\SAPBOSL\SAPServiceLayer\Services\Api;
 
 use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Http\Client\Response;

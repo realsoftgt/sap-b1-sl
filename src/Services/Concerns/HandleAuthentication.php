@@ -1,6 +1,6 @@
 <?php
 
-namespace Ianriizky\BeoneSAPServiceLayer\Services\Concerns;
+namespace RealSoft\SAPBOSL\SAPServiceLayer\Services\Concerns;
 
 use Closure;
 use GuzzleHttp\Cookie\CookieJar;
