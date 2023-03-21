@@ -37,6 +37,16 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Connection Type
+    |--------------------------------------------------------------------------
+    | Establish the type of connection to the database in SAP via Service Layer.
+    |
+    */
+
+    'connection_type' => env('SAP_DATABASE_DRIVER', 'SAP'),
+
+    /*
+    |--------------------------------------------------------------------------
     | Credentials
     |--------------------------------------------------------------------------
     | Username and password for the authentication purpose when login into SAP Service Layer.
