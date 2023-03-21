@@ -1,0 +1,70 @@
+{
+    "name": "realsoftgt/sap-b1-sl",
+    "description": "Es el puente entre su desarrollo Laravel y SAP Business One Service Layer utilizando Laravel HTTP Client, también le permite general modelos de SAP en su aplicación.",
+    "keywords": [
+        "php",
+        "laravel",
+        "realsoft",
+        "RealSoft",
+        "Real",
+        "Software",
+        "Solutions",
+        "SAP",
+        "sap",
+        "Business One",
+        "Business",
+        "One",
+        "B1",
+        "SL",
+        "Service Layer"
+    ],
+    "type": "library",
+    "require": {
+        "php": "^8.1",
+        "spatie/laravel-package-tools": "^1.13.0",
+        "illuminate/contracts": "^9.0",
+        "illuminate/http": "~9.0",
+        "guzzlehttp/guzzle": "^7.2"
+    },
+    "require-dev":{
+        "laravel/pint": "^1.0",
+        "nunomaduro/collision": "^6.0",
+        "orchestra/testbench": "^7.0",
+        "pestphp/pest": "^1.21",
+        "pestphp/pest-plugin-laravel": "^1.1",
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "RealSoft\\SAPBOSL\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Henry Díaz",
+            "email": "hdiaz@realsoft.dev"
+        }
+    ],
+    "minimum-stability": "stable",
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "@php ./vendor/bin/testbench package:discover --ansi"
+        ],
+        "test": "vendor/bin/pest"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "RealSoft\\SAPBOSLServiceLayer\\ServiceProvider"
+            ],
+            "aliases": {
+                "SAPServiceLayer": "RealSoft\\SAPBOSLServiceLayer\\Support\\Facades\\SAPServiceLayer"
+            }
+        }
+    }
+}
