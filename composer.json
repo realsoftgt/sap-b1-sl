@@ -54,10 +54,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "RealSoft\\SAPBOSLServiceLayer\\ServiceProvider"
+                "RealSoft\\SAPBOSL\\SAPServiceLayer\\ServiceProvider"
             ],
             "aliases": {
-                "SAPServiceLayer": "RealSoft\\SAPBOSLServiceLayer\\Support\\Facades\\SAPServiceLayer"
+                "SAPServiceLayer": "RealSoft\\SAPBOSL\\Support\\Facades\\SAPServiceLayer"
             }
         }
     }
