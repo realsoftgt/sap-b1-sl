@@ -34,7 +34,7 @@ Consulte [CONTRIBUTING](CONTRIBUTING.md) para más detalles.
 
 Propietaria.
 
-## Credits
+## Créditos
 | Perfil | Nombre |
 | ---- | ---- |
 | Propietario | [Real Software Solutions](https://github.com/realsoftgt) |
