@@ -1,6 +1,14 @@
 <?php
 
 return [
+    /*
+    |--------------------------------------------------------------------------
+    | Base URL
+    |--------------------------------------------------------------------------
+    | Set the base URL used on the SAP Service Layer.
+    |
+    */
+    "https"         => env('SAP_SECURE_URL', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -9,21 +17,16 @@ return [
     | Set the base URL used on the SAP Service Layer.
     |
     */
-
-    'base_url' => env('SAP_BASE_URL'),
+    "host"          => env('SAP_BASE_URL', '192.168.1.1'),
 
     /*
     |--------------------------------------------------------------------------
-    | SSL Certificate Verification
+    | Base URL
     |--------------------------------------------------------------------------
-    | Determine the configuration of SSL certificate verification from guzzlehttp/guzzle.
-    | Note: If your Laravel application environment is in "local" state, then this
-    |       configuration value will be automatically set as "false".
-    | @see https://docs.guzzlephp.org/en/stable/request-options.html#verify
+    | Set the base URL used on the SAP Service Layer.
     |
     */
-
-    'ssl_verify' => env('SAP_SSL_VERIFY'),
+    "port"          => env('SAP_BASE_PORT', 50000),
 
     /*
     |--------------------------------------------------------------------------
@@ -37,16 +40,6 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Connection Type
-    |--------------------------------------------------------------------------
-    | Establish the type of connection to the database in SAP via Service Layer.
-    |
-    */
-
-    'connection_type' => env('SAP_DATABASE_DRIVER', 'SAP'),
-
-    /*
-    |--------------------------------------------------------------------------
     | Credentials
     |--------------------------------------------------------------------------
     | Username and password for the authentication purpose when login into SAP Service Layer.
@@ -57,26 +50,26 @@ return [
 
     'password' => env('SAP_PASSWORD'),
 
-    /*
-    |--------------------------------------------------------------------------
-    | Laravel HTTP Client Configuration
-    |--------------------------------------------------------------------------
-    | Here is the list of value that will be used on the Laravel HTTP Client Configuration.
-    |
-    */
-
-    'request_retry_times' => env('SAP_REQUEST_RETRY_TIMES', 2),
-
-    'request_retry_sleep' => env('SAP_REQUEST_RETRY_SLEEP', 0),
 
     /*
     |--------------------------------------------------------------------------
-    | Guzzle Request Configuration
+    | Base URL
     |--------------------------------------------------------------------------
-    | Here is the list of value that will be used on the Guzzle Request Configuration.
-    | @see https://docs.guzzlephp.org/en/stable/request-options.html
+    | Set the base URL used on the SAP Service Layer.
     |
     */
+    "sslOptions"    => [
+                            "cafile"            =>  env('SAP_BASE_SSL_CA_PATH', 'path/to/certificate.crt'),
+                            "verify_peer"       =>  env('SAP_BASE_SSL_VERIFY_PEER', true),
+                            "verify_peer_name"  =>  env('SAP_BASE_SSL_VERIFY_PEER_NAME', true),
+                        ],
 
-    'guzzle_options' => [],
+    /*
+    |--------------------------------------------------------------------------
+    | Base URL
+    |--------------------------------------------------------------------------
+    | Set the base URL used on the SAP Service Layer.
+    |
+    */
+    "version"       => env('SAP_BASE_VERSION', 1) 
 ];

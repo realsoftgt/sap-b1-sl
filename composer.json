@@ -1,51 +1,20 @@
 {
     "name": "realsoftgt/sap-b1-sl",
-    "description": "Es el puente entre su desarrollo Laravel y SAP Business One Service Layer utilizando Laravel HTTP Client, también le permite general modelos de SAP en su aplicación.",
-    "keywords": [
-        "php",
-        "laravel",
-        "realsoft",
-        "RealSoft",
-        "Real",
-        "Software",
-        "Solutions",
-        "SAP",
-        "sap",
-        "Business One",
-        "Business",
-        "One",
-        "B1",
-        "SL",
-        "Service Layer"
-    ],
+    "description": "SAPBOSL es el puente entre su desarrollo Laravel y SAP Business One Service Layer utilizando Laravel HTTP Client.",
     "type": "library",
-    "require": {
-        "php": "^8.0",
-        "illuminate/http": "~9.0",
-        "guzzlehttp/guzzle": "~7.2"
-    },
+    "license": "MIT",
+    "authors": [
+      {
+        "name": "Henry Leonardo Díaz",
+        "email": "hdiaz@realsoft.dev"
+      }
+    ],
     "autoload": {
         "psr-4": {
-            "RealSoft\\SAPBOSL\\": "src/"
+          "RealSoft\\SAPBOSL\\": "src"
         }
-    },
-    "authors": [
-        {
-            "name": "Henry Díaz",
-            "email": "hdiaz@realsoft.dev"
-        }
-    ],
-    "minimum-stability": "stable",
-    "license": "MIT",
-    "config": {},
-    "extra": {
-        "laravel": {
-            "providers": [
-                "RealSoft\\SAPBOSL\\SAPServiceLayer\\ServiceProvider"
-            ],
-            "aliases": {
-                "SAPServiceLayer": "RealSoft\\SAPBOSL\\Support\\Facades\\SAPServiceLayer"
-            }
-        }
+      },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
     }
 }

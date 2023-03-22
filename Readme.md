@@ -1,40 +1,74 @@
-# SAPBOSL
+## SAPBOSL Wrapper for Laravel
 
-[![Build Status](https://github.com/realsoftgt/sap-b1-sl/actions/workflows/laravel.yml/badge.svg)](https://github.com/realsoftgt/sap-b1-sl/actions)
-[![StyleCI](https://github.styleci.io/repos/478463042/shield)](https://github.styleci.io/repos/478463042)
-[![Coverage Status](https://coveralls.io/repos/github/realsoftgt/sap-b1-sl/badge.svg)](https://coveralls.io/github/realsoftgt/sap-b1-sl)
-[![Latest Stable Version](https://poser.pugx.org/realsoftgt/sap-b1-sl/v/stable.svg)](https://packagist.org/packages/realsoftgt/sap-b1-sl)
-[![Total Downloads](https://poser.pugx.org/realsoftgt/sap-b1-sl/d/total.svg)](https://packagist.org/packages/realsoftgt/sap-b1-sl)
-[![Software License](https://poser.pugx.org/realsoftgt/sap-b1-sl/license.svg)](https://packagist.org/packages/realsoftgt/sap-b1-sl)
 
-**SAPBOSL** es el puente entre su desarrollo Laravel y SAP Business One Service Layer utilizando Laravel HTTP Client, también le permite general modelos de SAP en su aplicación.
+### Install SAPBOSL
 
-## Instalación
-Puede instalar el paquete a través de composer:
+    composer require realsoftgt/sap-b1-sl
 
-```bash
-composer require realsoftgt/sap-b1-sl
-```
-> Packagist: [https://packagist.org/packages/realsoftgt/sap-b1-sl](https://packagist.org/packages/realsoftgt/sap-b1-sl)
+### Configurate SAPBOSL
 
-## Pruebas
-```bash
-./vendor/bin/pest
+Add the following line to your Config/app.php  Providers:
+```php
+    RealSoft\SAPBOSL\SAPBOSLServiceProvider::class
 ```
 
-## Registro de cambios
+Add the following line to your Config/app.php Aliases:
+```php
+    'SAPClient' => RealSoft\SAPBOSL\SAPClient::class,
+```
 
-Consulte [CHANGELOG](CHANGELOG.md) para obtener más información sobre los cambios recientes.
+You can publish the config using this command:
+```shell
+    php artisan vendor:publish --provider="RealSoft\SAPBOSL\SAPBOSLServiceProvider"
+```
+ 
+The defaults configuration settings are set in `config/sap.php` as shown below and you can modify the values.
 
-## Contribución
+``` php
+'sap' => [
+        "https"         => false,
+        "host"          => "IP/HOST Address eg 192.168.1.1",
+        "port"          => 50000,
+        "sslOptions"    => ["cafile" => "path/to/certificate.crt","verify_peer" => true,"verify_peer_name" => true,],
+        "version"       => 1
+    ],
+```
 
-Consulte [CONTRIBUTING](CONTRIBUTING.md) para más detalles.
+You update config using this command:
+```shell
+    php artisan config:cache
+```
 
-## Licencia
+## Using SAPBOSL
 
-Propietaria.
+Use SAPClient in your controller.
+```php
+    use RealSoft\SAPBOSL\SAPClient;
+```
 
-## Créditos
-| Perfil | Nombre |
-| ---- | ---- |
-| Propietario | [Real Software Solutions](https://github.com/realsoftgt) |
+Create a new Service Layer session.
+
+```php
+    $sap = SAPClient::createSession('SAP UserName', 'SAP Password', 'Company DB');
+```
+
+Grab the SAP Business One session.
+
+```php
+    $session = $sap->getSession();
+```
+
+Example of pulling orders using session saved above:
+
+```php
+    $sap = new SAPClient(config('sap.sap') ,$session);
+    $orders = $sap->getService('Orders');
+    $result = $orders->queryBuilder()
+    ->select('DocEntry,DocNum')
+    ->orderBy('DocNum', 'asc')
+    ->limit(5)
+    ->findAll();
+```
+### License of SAPBOSL
+
+This SAPBOSL is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
