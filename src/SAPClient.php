@@ -46,7 +46,7 @@ class SAPClient{
      */
     public static function createSession(string $username, string $password, string $company) : SAPClient{
 
-        $configOptions =  config('SAP'); 
+        $configOptions =  config('SAP.sap'); 
         $config = new Config($configOptions);
 
         $request = new Request($config->getServiceUrl('Login'), $config->getSSLOptions());
