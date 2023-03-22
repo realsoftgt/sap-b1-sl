@@ -70,7 +70,7 @@ Use SAPClient in your controller.
 Create a new Service Layer session.
 
 ```php
-    $sap = SAPClient::createSession('SAP UserName', 'SAP Password', 'Company DB');
+    $sap = SAPClient::createSession(config('username'), config('password'), config('company_db'));
 ```
 
 Grab the SAP Business One session.
