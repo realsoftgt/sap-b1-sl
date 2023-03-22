@@ -44,14 +44,14 @@ class SAPClient{
      * Creates a new SAP B1 session and returns a new instance of SapBusinessOne\Client.
      * Throws SapBusinessOne\SAPException if an error occurred.
      */
-    public static function createSession(string $username, string $password, string $company) : SAPClient{
+    public static function createSession() : SAPClient{
 
         $configOptions =  config('sap.sap'); 
         $config = new Config($configOptions);
 
         $request = new Request($config->getServiceUrl('Login'), $config->getSSLOptions());
         $request->setMethod('POST');
-        $request->setPost(['UserName' => $username, 'Password' => $password, 'CompanyDB' => $company]);
+        $request->setPost(['UserName' => $config->getUsername(), 'Password' => $config->getPassword(), 'CompanyDB' => $config->getCompanyDB()]);
         $response = $request->getResponse();
         
         if($response->getStatusCode() === 200){

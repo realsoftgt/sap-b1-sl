@@ -27,6 +27,27 @@ class Config{
     public function getSSLOptions() : array{
         return $this->get('sslOptions', []);
     }
+
+    /**
+     * Gets the name of the database.
+     */
+    public function getCompanyDB() : string{
+        return $this->get('company_db', null);
+    }
+
+    /**
+     * Gets the SAP user name.
+     */
+    public function getUsername() : string{
+        return $this->get('username', null);
+    }
+
+    /**
+     * Gets the SAP user password.
+     */
+    public function getPassword() : string{
+        return $this->get('password', null);
+    }
     
     /**
      * Gets the Config as an array.
