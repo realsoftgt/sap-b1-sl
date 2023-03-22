@@ -3,7 +3,7 @@
 namespace RealSoft\SAPBOSL;
 
 use Illuminate\Support\ServiceProvider;
-use RealSoft\SAPBOSL\Console\InstallSapPackage;
+use RealSoft\SAPBOSL\Console\InstallSAPBOSLPackage;
 
 class SAPBOSLServiceProvider extends ServiceProvider
 {
@@ -22,7 +22,7 @@ class SAPBOSLServiceProvider extends ServiceProvider
     if ($this->app->runningInConsole()) {
 
         $this->commands([
-            InstallSapPackage::class,
+            InstallSAPBOSLPackage::class,
         ]);
 
         $this->publishes([
